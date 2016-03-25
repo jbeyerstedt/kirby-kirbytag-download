@@ -2,14 +2,14 @@
 // -------------------------------------------
 // kirby tag
 // Title:  download
-// function: return a beautiful download link for specific/ first/ last file
+// function: return a beautiful download link for all/ specific/ first/ last file
 
 // copyright: Jannik Beyerstedt | http://jannikbeyerstedt.de | code@jannikbeyerstedt.de
 // license: http://www.gnu.org/licenses/gpl-3.0.txt GPLv3 License
 
 // usage:
 // (download: $keyword type: $filetype ext: $extension text: $someLinkText)
-// $keyword:   type "first" or "last" for first/ last of collection, or specify the filename
+// $keyword:   type "all" for all files in collection, "first" or "last" for first/ last of collection, or specify the filename
 // $filetype:  filetype to choose: document/ code/ images/ videos
 // $extension: filename extension to filter
 
@@ -50,17 +50,31 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
     }
 
     if ($tag->attr('download') == 'first') {
-      $file = $files->first();
+      $files = $files->first();
     }else if ($tag->attr('download') == 'last') {
-      $file = $files->last();
+      $files = $files->last();
+    }else if ($tag->attr('download') == 'all') {
+      $files = $files;
     }else{
-      $file = $files->find($tag->attr('download'));
+      $files = $files->find($tag->attr('download'));
     }
 
-    // switch link text: filename or custom text
-    (empty($tag->attr('text'))) ? $text = $file->filename() : $text = $tag->attr('text');
+    if ($tag->attr('download') == 'all') {
+      $html = '<ul>';
+      foreach ($files as $file) {
+        $text = $file->name();
+        $html .= '<li>';
+        $html .= '<a class="dl" href="'.$file->url().'" target="_blank">'.$text.'</a> <small>('.$file->niceSize().')</small>';
+        $html .= '</li>';
+      }
 
-    return '<a class="dl" href="'.$file->url().'" target="_blank">'.$text.'</a> <small>('.$file->niceSize().')</small>';
+      $html .= '</ul>';
+      return $html;
+    } else{
+        // switch link text: filename or custom text
+        (empty($tag->attr('text'))) ? $text = $files->filename() : $text = $tag->attr('text');
+        return '<a class="dl" href="'.$files->url().'" target="_blank">'.$text.'</a> <small>('.$files->niceSize().')</small>';
+    }
   }
 );
 ?>
