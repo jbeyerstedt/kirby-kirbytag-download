@@ -1,8 +1,11 @@
 ## Introduction
-This kirbytag returns a beatiful download-link for a specific file in your site´s content. It generates a link with a customizable text and dispays the filesize.  
+This kirbytag returns a beatiful download-link for a specific file in your site's content. It generates a link with a customizable text and dispays the filesize.
 
-That´s nothing special, but come some features for lazy people:  
-You can choose your file, by the file categorization kirby uses (document, image, etc.) and the select by first or last. If you have a file, like a regularly updating flyer, you can keep going on with individual file names, but don´t have to specify the name in the tag eveny time you change your file! Isn´t this awesome?
+That's nothing special, but come some features for lazy people:  
+You can choose your file, by the file categorization kirby uses (document, image, etc.) and the select by first or last. If you have a file, like a regularly updating flyer, you can keep going on with individual file names, but don't have to specify the name in the tag eveny time you change your file! Isn't this awesome?
+
+#### note:
+This is only tested with kirby 2!
 
 
 #### installation
@@ -20,6 +23,7 @@ First thing to replace is `$keyword`. You can choose from:
 
 - "first": selects the first file
 - "last":  selects the last file
+- "all": selects all files (of given type)
 - or you can type some filename
 
 Next we want to specify which files are affected. This is done with replacing `$filetype`. You can choose from the kirby file selectors:
@@ -43,5 +47,4 @@ Of course the pattern above is only an example and not working by copying it. If
 
 
 ## contribution
-Feel free to fork this repository an make it better.  
-Perhaps we can implement the viewport width feature in some way.
+Feel free to fork this repository an make it better.
