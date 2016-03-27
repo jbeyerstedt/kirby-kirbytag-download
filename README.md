@@ -33,10 +33,12 @@ First thing to replace is `$keyword`. You can choose from:
 
 Next we want to specify which files are affected. This is done with replacing `$filetype`. You can choose from the kirby file selectors:
 
+- "image"
 - "document"
+- "archive"
 - "code"
-- "images"
-- "videos"
+- "video"
+- "audio"
 
 To condense the selection further down, you can replace `$extension` and type a filename extension.
 

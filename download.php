@@ -26,10 +26,12 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
   ),
   'html' => function($tag) {
 
-    $types = array('document',
+    $types = array('image',
+                   'document',
+                   'archive',
                    'code',
-                   'images',
-                   'videos');
+                   'video',
+                   'audio');
 
     $files = $tag->page()->files();
 
@@ -62,7 +64,7 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
     if ($tag->attr('download') == 'all') {
       $html = '<ul>';
       foreach ($files as $file) {
-        $text = $file->name();
+        $text = $file->filename();
         $html .= '<li>';
         $html .= '<a class="dl" href="'.$file->url().'" target="_blank">'.$text.'</a> <small>('.$file->niceSize().')</small>';
         $html .= '</li>';
