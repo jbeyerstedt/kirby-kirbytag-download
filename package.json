@@ -1,0 +1,6 @@
+{
+  "name": "download",
+  "description": "Kirby Tag for beautiful download links",
+  "license": "GNU GPLv3",
+  "type": "kirby-tag"
+}
