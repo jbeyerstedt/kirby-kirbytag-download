@@ -1,24 +1,24 @@
-# kirbytag download
+# kirby CMS - kirbytag: download
 by Jannik Beyerstedt from Hamburg, Germany  
-[jannikbeyerstedt.de](http://jannikbeyerstedt.de) | [Github](https://github.com/jbeyerstedt)
+[jannikbeyerstedt.de](http://jannikbeyerstedt.de) | [Github](https://github.com/jbeyerstedt)  
+**license:** GNU GPL v3
 
+## Introduction
+**return a beautiful download link for specific/ first/ last file or all files**
 
-## return a beautiful download link for specific/ first/ last file or all files
 This kirbytag returns a beatiful download-link for a specific file in your site's content. It generates a link with a customizable text and dispays the filesize.
 
 That's nothing special, but come some features for lazy people:  
 You can choose your file, by the file categorization kirby uses (document, image, etc.) and the select by first or last. If you have a file, like a regularly updating flyer, you can keep going on with individual file names, but don't have to specify the name in the tag eveny time you change your file! Isn't this awesome?
 
-#### note:
-This is only tested with kirby 2!
+## User Manual
 
-
-#### installation
+#### Installation
 store this file in
 
 	site/tags/
 
-#### usage
+#### Usage
 Now you have a new kitbytext extension for download-links.  
 The syntax is quite simple:
 
@@ -53,5 +53,5 @@ Of course the pattern above is only an example and not working by copying it. If
 	(download: flyer.pdf text: our beautiful products)
 
 
-## contribution
-Feel free to fork this repository an make it better.
+## Contribution
+Feel free to fork this repository and make it better.
