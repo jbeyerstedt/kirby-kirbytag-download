@@ -27,19 +27,21 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
   'html' => function($tag) {
 
     $types = array('image',
-                   'document',
-                   'archive',
-                   'code',
-                   'video',
-                   'audio');
+    'document',
+    'archive',
+    'code',
+    'video',
+    'audio');
 
     $files = $tag->page()->files();
+    $class = c::get('tags.download.class', 'dl');
+    $warnings = c::get('tags.download.warnings', true);
 
     if ($tag->attr('type') != "") {
       if(in_array($tag->attr('type'), $types)) {
         $files = $files->filterBy('type', $tag->attr('type'));
       }else {
-        return('<b>ERROR: download - no valid type defined</b>');
+        return $warnings ? '<b>ERROR: download - no valid type defined</b>' : '';
       }
     }
 
@@ -47,8 +49,8 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
       $files = $files->filterBy('extension', $tag->attr('ext'));
     }
 
-    if ($files->count() == 0) {
-      return '<b>WARNING</b>: no files selected';
+    if (!$files || $files->count() == 0) {
+      return $warnings ? '<b>WARNING</b>: no file(s) selected' : '';
     }
 
     if ($tag->attr('download') == 'first') {
@@ -61,21 +63,29 @@ kirbytext::$tags['download'] = array( // give keyword "first" or "last" or the f
       $files = $files->find($tag->attr('download'));
     }
 
+    if (!$files) {
+      return $warnings ? '<b>WARNING</b>: file(s) could not be found.' : '';
+    }
+
     if ($tag->attr('download') == 'all') {
       $html = '<ul>';
       foreach ($files as $file) {
+        $ext = $file->extension();
+        $classes = $class . " " . $class . "--" . $ext; // i.e. "dl dl--pdf"
         $text = $file->filename();
         $html .= '<li>';
-        $html .= '<a class="dl" href="'.$file->url().'" target="_blank">'.$text.'</a> <small>('.$file->niceSize().')</small>';
+        $html .= '<a class="'. $classes .'" href="'.$file->url().'" data-ext="'. $ext .'" target="_blank" download>'.$text.'</a> <small>('.$file->niceSize().')</small>';
         $html .= '</li>';
       }
 
       $html .= '</ul>';
       return $html;
     } else{
-        // switch link text: filename or custom text
-        (empty($tag->attr('text'))) ? $text = $files->filename() : $text = $tag->attr('text');
-        return '<a class="dl" href="'.$files->url().'" target="_blank">'.$text.'</a> <small>('.$files->niceSize().')</small>';
+      // switch link text: filename or custom text
+      $ext = $files->extension();
+      $classes = $class . " " . $class . "--" . $ext; // i.e. "dl dl--pdf"
+      (empty($tag->attr('text'))) ? $text = $files->filename() : $text = $tag->attr('text');
+      return '<a class="'. $classes .'" href="'.$files->url().'" data-ext="'. $ext .'" target="_blank" download>'.$text.'</a> <small>('.$files->niceSize().')</small>';
     }
   }
 );
