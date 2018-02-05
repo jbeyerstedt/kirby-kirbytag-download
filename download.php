@@ -13,8 +13,7 @@
 // $filetype:  filetype to choose: document/ code/ images/ videos
 // $extension: filename extension to filter
 
-// version: 1.1.0 (27.03.2016)
-// changelog:
+// version: 1.1.1 (16.05.2017)
 // -------------------------------------------
 
 
