@@ -1,8 +1,10 @@
 {
-  "name": "download",
+  "name": "jbeyerstedt/download",
   "description": "Kirbytag to generate beautiful download links for a specific file",
   "author": "Jannik Beyerstedt <code@jannikbeyerstedt.de>",
-  "version": "1.1.1",
-  "type": "kirby-tag",
-  "license": "GNU GPLv3"
+  "version": "0.9.0",
+  "license": "GNU GPLv3",
+  "autoload": {
+    "files": ["config.php"],
+  }
 }
