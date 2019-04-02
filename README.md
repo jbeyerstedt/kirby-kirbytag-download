@@ -1,14 +1,12 @@
-# Kirby Download Kirbytag
+# Download Kirbytag for Kirby CMS v2/v3
 by Jannik Beyerstedt from Hamburg, Germany  
 [jannikbeyerstedt.de](http://jannikbeyerstedt.de) | [Github](https://github.com/jbeyerstedt)  
 **license:** GNU GPL v3  
-**version:** v1.1.1
+**version:** v1.0.0
 
-## Notice for Kirby 3
-This plugin has been adapted for kirby 3, but because major changes are needed, a new branch was created.
-You will find the kibry 3 compatible version in the branch `kirby3`.
-
-If anyone needs composer support, please add it via a pull-request, because I don't use composer myself.
+## Notice About Branches and Kirby 2
+Kirby 3 support was added in the `kirby3` branch, because Kirby 2 and Kirby 3 plugins are quite different.
+Now that Kirby 3 is released, I changed the default branch to `kirby3` but will keep the `master`, because old Kirby 2 projects might break, if I rename the branches.
 
 
 ## Introduction
