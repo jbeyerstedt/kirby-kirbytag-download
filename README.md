@@ -2,11 +2,14 @@
 by Jannik Beyerstedt from Hamburg, Germany  
 [jannikbeyerstedt.de](http://jannikbeyerstedt.de) | [Github](https://github.com/jbeyerstedt)  
 **license:** GNU GPL v3  
-**version:** v1.0.0
+**version:** v2.0.0
 
 ## Notice About Branches and Kirby 2
 Kirby 3 support was added in the `kirby3` branch, because Kirby 2 and Kirby 3 plugins are quite different.
 Now that Kirby 3 is released, I changed the default branch to `kirby3` but will keep the `master`, because old Kirby 2 projects might break, if I rename the branches.
+
+**Updating from the Kirby 2 version:** The configuration options are now prefixed by `jbeyerstedt.download` instead of `tags.download`.
+This is caused by the new way, how plugins work within Kirby 3.
 
 
 ## Introduction
@@ -71,8 +74,8 @@ With the `text` attribute (replace `$someLinkText`) you can set a custom text, w
 
 ### Options
 
-* `tags.download.class`: The class appended to the anchor-element (Default: `dl`)
-* `tags.download.warnings`: Inlines warnings if for example the given file couldn’t be found or the set is empty. (Default: `true`)
+* `jbeyerstedt.download.class`: The class appended to the anchor-element (Default: `dl`)
+* `jbeyerstedt.download.warnings`: Inlines warnings if for example the given file couldn’t be found or the set is empty. (Default: `true`)
 
 You can set these in your `config.php` like this:
 
@@ -92,9 +95,9 @@ A look like this can be achieved with the following CSS:
 ```CSS
 a.dl {
   @mixin colored-badge($color: gray) {
-	   border-color: rgba($color, .3);
-	   background: rgba($color, .1);
-	   color: $color;
+    border-color: rgba($color, .3);
+    background: rgba($color, .1);
+    color: $color;
   }
 
   &:before {
