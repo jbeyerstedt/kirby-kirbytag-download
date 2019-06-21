@@ -1,0 +1,17 @@
+{
+  "name": "jbeyerstedt/download",
+  "description": "Kirbytag to generate beautiful download links for a specific file",
+  "version": "2.0.0",
+  "license": "GNU GPLv3",
+  "type": "kirby-plugin",
+  "license": "GPL-3.0-only",
+  "authors": [
+    {
+      "name": "Jannik Beyerstedt",
+      "email": "code@jannikbeyerstedt.de"
+    }
+  ],
+  "require": {
+    "getkirby/composer-installer": "^1.1"
+  }
+}
