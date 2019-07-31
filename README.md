@@ -31,10 +31,14 @@ If you are using git submodules to manage the plugins, use this command:
 git submodule add https://github.com/jbeyerstedt/kirby-kirbytag-download site/plugins/kirbytag-download
 ```
 
-If you are using composer to manage the plugins, try:
+If you are using composer add this to your `composer.json` to always get the latest version:
+```json
+"require": {
+    "jbeyerstedt/download": "dev-kirby3"
+}
 ```
-composer require jbeyerstedt/download
-```
+Alternatively, you can select any version greater than 2.0.
+
 
 ### Usage
 Now you have a new kirbytext extension for download-links.  
